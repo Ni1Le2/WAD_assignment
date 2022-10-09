@@ -7,11 +7,22 @@ class Researcher {
         this.surname = surname;
         this.email = email;
         this.affiliateOrganization = affiliateOrganization;
+        this.papers = [];
+    }
+}
+
+// Class for uploaded papers
+class Paper {
+    constructor(title, author, file){
+        this.title = title;
+        this.author = author;
+        this.file = file;
+        this.reviewScore = 0;
     }
 }
 
 // List of registered users
-const researchers = [];
+const researchers = [new Researcher("Mr.", "John", "Doe", "johndoe@hotmail.com", "Doecorp")];
 
 // Function that creates a new user and adds it to the array 'researchers'
 function registerUser(){
@@ -22,3 +33,16 @@ function registerUser(){
         document.getElementById('affiliateOrganization').value);
     researchers.push(newResearcher);
     return false;}
+
+
+// Function that adds a new paper under the logged in researcher's name
+function addPaper(){
+    var paperAuthor = researchers[researchers.length-1];
+    var newPaper = new Paper(document.getElementById('papername').value,
+        paperAuthor,
+        document.getElementById('myFile'));
+    paperAuthor.papers.push(newPaper);
+    document.getElementById('papersHere').insertAdjacentHTML('afterend',
+        paperAuthor.surname);
+    return false;}
+
