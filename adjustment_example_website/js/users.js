@@ -22,7 +22,9 @@ class Paper {
 }
 
 // List of registered users
-const researchers = [new Researcher("Mr.", "John", "Doe", "johndoe@hotmail.com", "Doecorp")];
+const exampleResearcher = new Researcher("Mr.", "John", "Doe", "johndoe@hotmail.com", "Doecorp");
+exampleResearcher.papers.push(new Paper("Study of something.", exampleResearcher, "papers/example1.pdf"));
+const researchers = [exampleResearcher];
 
 // Function that creates a new user and adds it to the array 'researchers'
 function registerUser(){
@@ -32,6 +34,7 @@ function registerUser(){
         document.getElementById('email').value,
         document.getElementById('affiliateOrganization').value);
     researchers.push(newResearcher);
+    window.location.href = "index.html";
     return false;}
 
 
@@ -43,6 +46,6 @@ function addPaper(){
         document.getElementById('myFile'));
     paperAuthor.papers.push(newPaper);
     document.getElementById('papersHere').insertAdjacentHTML('afterend',
-        paperAuthor.surname);
+        '<div><h6 class="text-uppercase">'+ newPaper.title +'</h6><a>By: '+ paperAuthor.title + ' '+ paperAuthor.firstName + ' ' + paperAuthor.surname + ', ' + paperAuthor.affiliateOrganization +'</a><br><a href="papers/example1.pdf" download>Download</a><br><a>'+ paperAuthor.email +'</a><br><br></div>');
     return false;}
 
