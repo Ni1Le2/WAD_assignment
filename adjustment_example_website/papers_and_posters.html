@@ -92,7 +92,7 @@
         <form onsubmit="return addPaper()">
             Upload a new paper: <br><br>
             <input type="text" placeholder="Enter title of your paper" name="papername" id="papername" required>
-            <input type="file" id="myFile" name="filename" accept=".pdf" required>
+            <input type="text" id="myFile" name="filename" placeholder="Copy your text here" required>
             <input type="submit">
         </form><br><br>
         <div id="papersHere">
@@ -100,7 +100,7 @@
             <div>
                 <h6 class="text-uppercase">A study of something</h6>
                 <a>By: Mr. John Doe, Doecorp</a><br>
-                <a href="papers/example1.pdf" download>Download</a><br>
+                <a href="papers/example1.txt" target="_blank">Open</a><br>
                 <a>johndoe@hotmail.com</a><br><br>
             </div>
         </div>
